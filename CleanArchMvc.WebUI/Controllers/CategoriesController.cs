@@ -42,9 +42,14 @@ namespace CleanArchMvc.WebUI.Controllers
         }
 
         [HttpGet()]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
+            if(id == null) return NotFound();
+
             var category = await _categoryService.GetCategoryByIdAsync(id);
+
+            if (category == null) return NotFound();
+
 
             return View(category);
         }
@@ -60,5 +65,8 @@ namespace CleanArchMvc.WebUI.Controllers
 
             return View(category);
         }
+
+
+
     }
 }
