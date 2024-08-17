@@ -13,13 +13,13 @@ public class ProductDTO
     [MinLength(3)]
     [MaxLength(100)]
     [DisplayName("Name")]
-    public string Name { get; set; }
+    public required string Name { get; set; }
 
     [Required(ErrorMessage = "The Description is Required")]
     [MinLength(5)]
     [MaxLength(200)]
     [DisplayName("Description")]
-    public string Description { get; set; }
+    public required string Description { get; set; }
 
     [Required(ErrorMessage = "The Price is Required")]
     [Column(TypeName = "decimal(10,2")]
@@ -35,7 +35,7 @@ public class ProductDTO
 
     [MaxLength(250)]
     [DisplayName("Product Image")]
-    public string Image { get; set; }
+    public required string Image { get; set; }
 
     public Category Category { get; set; }
 

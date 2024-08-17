@@ -11,5 +11,5 @@ public class CategoryDTO
     [MinLength(3)]
     [MaxLength(100)]
     [DisplayName("Name")]
-    public string Name { get; set; }
+    public required string Name { get; set; }
 }
