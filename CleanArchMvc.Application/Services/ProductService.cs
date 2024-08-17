@@ -50,18 +50,7 @@ public class ProductService : IProductService
         var result = await _mediator.Send(productQuery);
         return _mapper.Map<ProductDto>(result);
     }
-
-    public async Task<ProductDto> GetProductCategoryAsync(int id)
-    {
-        var productCategoryQuery = new GetProductByIdQuery(id);
-
-        if (productCategoryQuery == null)
-            throw new ApplicationException("Entity could not be loaded");
-
-        var result = await _mediator.Send(productCategoryQuery);
-        return _mapper.Map<ProductDto>(result);
-    }
-
+    
     public async Task<IEnumerable<ProductDto>> GetProductsAsync()
     {
         var productsQuery = new GetProductsQuery();
