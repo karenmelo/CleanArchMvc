@@ -17,7 +17,7 @@ public class CategoryService : ICategoryService
         _mapper = mapper;
     }
 
-    public async Task Add(CategoryDTO categoryDTO)
+    public async Task Add(CategoryDto categoryDTO)
     {
         var categoryEntity = _mapper.Map<Category>(categoryDTO);
         await _categoryRepository.Create(categoryEntity);
@@ -29,19 +29,19 @@ public class CategoryService : ICategoryService
         await _categoryRepository.Remove(category);
     }
 
-    public async Task<IEnumerable<CategoryDTO>> GetCategoriesAsync()
+    public async Task<IEnumerable<CategoryDto>> GetCategoriesAsync()
     {
         var categoriesEntity = await _categoryRepository.GetCategories();
-        return _mapper.Map<IEnumerable<CategoryDTO>>(categoriesEntity);
+        return _mapper.Map<IEnumerable<CategoryDto>>(categoriesEntity);
     }
 
-    public async Task<CategoryDTO> GetCategoryByIdAsync(int id)
+    public async Task<CategoryDto> GetCategoryByIdAsync(int id)
     {
         var categoryEntity = await _categoryRepository.GetById(id);
-        return _mapper.Map<CategoryDTO>(categoryEntity);
+        return _mapper.Map<CategoryDto>(categoryEntity);
     }
 
-    public async Task Update(CategoryDTO categoryDTO)
+    public async Task Update(CategoryDto categoryDTO)
     {
         var categoryEntity = _mapper.Map<Category>(categoryDTO);
         await _categoryRepository.Update(categoryEntity);
