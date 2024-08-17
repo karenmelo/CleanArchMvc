@@ -50,6 +50,15 @@ public class ProductUnitTest
         action.Should().NotThrow<DomainExceptionValidation>();
     }
 
+
+    [Fact]
+    public void CreateProduct_WithNullImageName_NoNullReferenceException()
+    {
+        Action action = () => new Product(1, "Pro", "Product Descriptiom", 9.99m, 99, null);
+
+        action.Should().NotThrow<NullReferenceException>();
+    }
+
     [Fact]
     public void CreateProduct_WithEmptyImageName_NoDomainException()
     {
