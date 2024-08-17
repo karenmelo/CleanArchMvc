@@ -7,6 +7,7 @@ using CleanArchMvc.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace CleanArchMvc.Infra.Ioc;
 
@@ -36,6 +37,13 @@ public static class DependencyInjection
 
         services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<IProductService, ProductService>();
+
+        #endregion
+
+
+        #region CQRS
+
+        services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.Load("CleanArchMvc.Application")));
 
         #endregion
 
