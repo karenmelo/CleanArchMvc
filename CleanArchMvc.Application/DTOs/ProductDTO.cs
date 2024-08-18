@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace CleanArchMvc.Application.DTOs;
 
@@ -36,7 +37,7 @@ public class ProductDto
     [MaxLength(250)]
     [DisplayName("Product Image")]
     public required string Image { get; set; }
-
+    [JsonIgnore]
     public Category? Category { get; set; }
 
     [DisplayName("Categories")]
