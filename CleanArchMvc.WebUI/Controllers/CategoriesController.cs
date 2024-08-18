@@ -7,15 +7,12 @@ namespace CleanArchMvc.WebUI.Controllers;
 
 [Authorize]
 public class CategoriesController : Controller
-{
-    private readonly ILogger<CategoriesController> _logger;
+{   
     private readonly ICategoryService _categoryService;
 
-    public CategoriesController(ICategoryService categoryService,
-                                ILogger<CategoriesController> logger)
+    public CategoriesController(ICategoryService categoryService)
     {
-        _categoryService = categoryService;
-        _logger = logger;
+        _categoryService = categoryService;        
     }
 
     [HttpGet]
