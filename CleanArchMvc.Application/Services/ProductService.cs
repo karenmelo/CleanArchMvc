@@ -39,9 +39,9 @@ public class ProductService : IProductService
         await _mediator.Send(productRemoveCommand);
     }
 
-    public async Task<ProductDto> GetProductByIdAsync(int id)
+    public async Task<ProductDto> GetProductByIdAsync(int? id)
     {
-        var productQuery = new GetProductByIdQuery(id);
+        var productQuery = new GetProductByIdQuery(id.Value);
 
 
         if (productQuery == null)
